@@ -1,4 +1,4 @@
-import Models.User;
+import Models.Transaction;
 import utils.Constants;
 import validations.Validations;
 
@@ -12,7 +12,7 @@ public class RegisterUserPage {
         this.scanner = new Scanner(System.in);
     }
 
-    public User registerUser() {
+    public Transaction registerUser() {
         System.out.println(Constants.REGISTER_USER_PROMPT);
 
         String cardNumber;
@@ -106,7 +106,7 @@ public class RegisterUserPage {
             }
         }
 
-        User user = User.builder()
+        Transaction transaction = Transaction.builder()
                 .cardNumber(cardNumber)
                 .cvv(cvv)
                 .amount(amount)
@@ -117,8 +117,8 @@ public class RegisterUserPage {
                 .build();
 
         System.out.println(Constants.USER_REGISTERED_SUCCESSFULLY);
-        System.out.println(user);
+        System.out.println(transaction);
 
-        return user;
+        return transaction;
     }
 }

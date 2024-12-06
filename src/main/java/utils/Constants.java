@@ -7,9 +7,7 @@ public class Constants {
     public static int ZERO = 0;
     public static final String A = "A";
     public static final String B = "B";
-    public static final String PENDING = "Pending";
-    public static final String TRANSACTION_SUCCEEDED = "Transaction succeeded.";
-    public static final String TRANSACTION_FAILED = "Transaction failed.";
+
     public static final String REGISTER_USER_PROMPT = "Register a new User";
     public static final String ENTER_CARD_NUMBER = "Enter card number: ";
     public static final String INVALID_CARD_NUMBER = "Invalid card number. Please try again.";

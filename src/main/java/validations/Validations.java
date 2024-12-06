@@ -28,18 +28,18 @@ public class Validations {
         return (sum % 10 == 0);
     }
 
-    public static String checkIfEven(int num) {
-        return num % Constants.EVEN == Constants.ZERO ? Constants.VALUE_IS_EVEN: Constants.VALUE_IS_ODD;
+    public static Boolean checkIfEven(int num) {
+        return num % 2 == 0 ;
     }
 
-    public static String validateBIN_Even(String cardNumber) {
+    public static Boolean validateBIN_Even(String cardNumber) {
         int sum = cardNumber.chars()
                 .map(Character::getNumericValue)
                 .sum();
         return checkIfEven(sum);
     }
 
-    public static String checkLastDigitEven(String cardNumber) {
+    public static Boolean checkLastDigitEven(String cardNumber) {
         char lastChar = cardNumber.charAt(cardNumber.length() - 1);
         int lastDigit = Character.getNumericValue(lastChar);
         return checkIfEven(lastDigit);

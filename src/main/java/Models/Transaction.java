@@ -7,7 +7,7 @@ import lombok.ToString;
 @Getter
 @Builder
 @ToString
-public class User {
+public class Transaction {
     private String cardNumber;
     private String cvv;
     private Double amount;
@@ -15,4 +15,6 @@ public class User {
     private int merchantID;
     private int expiryMonth;
     private int expiryYear;
+    String PSPName;
+    TransactionStatus status;
 }
