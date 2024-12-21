@@ -1,4 +1,4 @@
-package com.PSPsystem.models;
+package com.PSPsystem.controller.models;
 
 import lombok.Getter;
 import lombok.Setter;

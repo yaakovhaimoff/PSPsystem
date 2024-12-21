@@ -1,7 +1,7 @@
-package com.PSPsystem.psp.service;
+package com.PSPsystem.components.psp.service;
 
-import com.PSPsystem.models.Transaction;
-import com.PSPsystem.models.TransactionStatus;
+import com.PSPsystem.components.transaction.models.Transaction;
+import com.PSPsystem.components.transaction.models.TransactionStatus;
 import org.springframework.stereotype.Service;
 
 @Service

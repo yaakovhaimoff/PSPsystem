@@ -1,4 +1,4 @@
-package com.PSPsystem.models;
+package com.PSPsystem.components.transaction.models;
 
 public enum TransactionStatus {
     SUCCESS,

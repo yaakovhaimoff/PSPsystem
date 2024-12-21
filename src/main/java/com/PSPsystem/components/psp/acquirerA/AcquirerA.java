@@ -1,10 +1,10 @@
-package com.PSPsystem.psp.acquirerA;
+package com.PSPsystem.components.psp.acquirerA;
 
-import com.PSPsystem.models.Transaction;
-import com.PSPsystem.models.TransactionStatus;
-import com.PSPsystem.psp.PaymentServiceProvider;
-import com.PSPsystem.psp.service.PaymentProviderService;
-import com.PSPsystem.utils.tongue.Tongue;
+import com.PSPsystem.common.Constants;
+import com.PSPsystem.components.transaction.models.Transaction;
+import com.PSPsystem.components.transaction.models.TransactionStatus;
+import com.PSPsystem.components.psp.PaymentServiceProvider;
+import com.PSPsystem.components.psp.service.PaymentProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +18,7 @@ public class AcquirerA implements PaymentServiceProvider {
     }
     @Override
     public String getName() {
-        return Tongue.ACQUIRER_A;
+        return Constants.ACQUIRER_A;
     }
     @Override
     public TransactionStatus processTransaction(Transaction transaction) {
