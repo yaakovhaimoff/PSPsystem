@@ -1,9 +1,6 @@
 package com.PSPsystem.components.routing;
 
-import com.PSPsystem.components.psp.PSP;
-import com.PSPsystem.controller.models.PaymentRequest;
 import com.PSPsystem.components.transaction.models.Transaction;
-import com.PSPsystem.components.transaction.models.TransactionStatus;
 import com.PSPsystem.components.psp.PaymentServiceProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +19,7 @@ public class RoutingService implements IRoutingService {
 
     @Override
     public PaymentServiceProvider assignPsp(Transaction transaction) {
-        //todo need to return selected PaymentServiceProvider for transction!!
+        //todo need to return selected PaymentServiceProvider for transaction!!
 //        Transaction transaction = new Transaction();
 //        transaction.setPaymentRequest( paymentRequest );
 //        transaction.setStatus( TransactionStatus.PENDING );
@@ -32,7 +29,7 @@ public class RoutingService implements IRoutingService {
 //
 //        }
 //
-//        return null;
+        return null;
     }
 
     private static Boolean checkIfEven( int num ) {

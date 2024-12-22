@@ -50,5 +50,4 @@ public class ProcessPaymentImp implements IProcessPayment {
         }
         return ( sum % 10 == 0 );
     }
-
 }
