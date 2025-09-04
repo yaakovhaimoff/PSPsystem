@@ -1,28 +1,26 @@
 package com.PSPsystem.components.psp.acquirerB;
 
-import com.PSPsystem.common.Constants;
+import com.PSPsystem.components.psp.IPaymentServiceProvider;
 import com.PSPsystem.components.transaction.models.Transaction;
 import com.PSPsystem.components.transaction.models.TransactionStatus;
-import com.PSPsystem.components.psp.PaymentServiceProvider;
-import com.PSPsystem.components.psp.service.PaymentProviderService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import static com.PSPsystem.common.PSPConastants.ACQUIRER_B;
+import org.springframework.stereotype.Service;
 
-@Component
-public class AcquirerB implements PaymentServiceProvider {
 
-    private final PaymentProviderService paymentProviderService;
-
-    @Autowired
-    public AcquirerB( PaymentProviderService paymentProviderService ) {
-        this.paymentProviderService = paymentProviderService;
-    }
+@Service
+public class AcquirerB implements IPaymentServiceProvider {
     @Override
     public String getName() {
-        return Constants.ACQUIRER_B;
+        return ACQUIRER_B;
     }
+
     @Override
     public TransactionStatus processTransaction(Transaction transaction) {
-        return paymentProviderService.processPayment( transaction );
+        int lastDigit = Integer.parseInt(transaction.getPaymentRequest().getCardNumber().substring(transaction.getPaymentRequest().getCardNumber().length() - 1));
+        if( lastDigit % 2 == 0 ) {
+            return TransactionStatus.SUCCESS;
+        } else {
+            return TransactionStatus.FAILURE;
+        }
     }
 }

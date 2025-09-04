@@ -1,22 +1,20 @@
-package com.PSPsystem.components.processor;
+package com.PSPsystem.components.paymentProcessor;
 
-import com.PSPsystem.components.psp.PaymentServiceProvider;
-import com.PSPsystem.components.routing.IRoutingService;
+import com.PSPsystem.components.paymentRouting.IPaymentRouting;
+import com.PSPsystem.components.psp.IPaymentServiceProvider;
 import com.PSPsystem.components.transaction.models.Transaction;
-import com.PSPsystem.controller.models.PaymentRequest;
+import com.PSPsystem.controller.model.PaymentRequest;
 import com.PSPsystem.components.transaction.models.TransactionStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProcessPaymentImp implements IProcessPayment {
-
-
-    private final IRoutingService routingService;
+public class PaymentProcessorImpl implements IPaymentProcessor{
+    private final IPaymentRouting paymentRouting;
 
     @Autowired
-    public ProcessPaymentImp( IRoutingService routingService ) {
-        this.routingService = routingService;
+    public PaymentProcessorImpl(IPaymentRouting paymentRouting) {
+        this.paymentRouting = paymentRouting;
     }
 
     @Override
@@ -25,10 +23,10 @@ public class ProcessPaymentImp implements IProcessPayment {
             return TransactionStatus.BAD_REQUEST;
         }
         Transaction transaction = new Transaction(paymentRequest);
-        PaymentServiceProvider selectedPSP = routingService.assignPsp( transaction );
-        transaction.setPSPName( selectedPSP.getName() );
+        IPaymentServiceProvider selectedPSP = paymentRouting.assignPsp( transaction );
+        transaction.setPSPName(selectedPSP.getName());
 
-        TransactionStatus status = selectedPSP.processTransaction( transaction );
+        TransactionStatus status = selectedPSP.processTransaction(transaction);
         //todo return transctionResult not status, if there is error? needs to have also some message indicate error type
 
         return status;
